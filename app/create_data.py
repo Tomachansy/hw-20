@@ -1,6 +1,7 @@
 from app.dao.models.movie import Movie
 from app.dao.models.director import Director
 from app.dao.models.genre import Genre
+from app.dao.models.user import User
 
 
 def load_data(app, db):
@@ -207,6 +208,11 @@ def load_data(app, db):
                 {"name": "Короткометражка", "pk": 10}, {"name": "Ужасы", "pk": 11}, {"name": "Боевик", "pk": 12},
                 {"name": "Мелодрама", "pk": 13}, {"name": "Детектив", "pk": 14}, {"name": "Авторское кино", "pk": 15},
                 {"name": "Мультфильм", "pk": 16}, {"name": "Вестерн", "pk": 17}, {"name": "Мюзикл", "pk": 18}],
+            "users": [
+                {"username": "ivan", "password": "m99fjABSDeB3olB/KpA0+mvUiBzG0w13mPDzx1k82f8=", "role": "admin", "pk": 1},
+                {"username": "vasya", "password": "3hVioN51Icw2kQZiywK6hApAP1/ue3YWHb25xLhzRew=", "role": "user", "pk": 2},
+                {"username": "oleg", "password": "m99fjABSDeB3olB/KpA0+mvUiBzG0w13mPDzx1k82f8=", "role": "user", "pk": 3},
+                {"username": "oleg", "password": "1MjeGwaCGeyFqVqIHnSEStSAQgOZWwNqGQ37QQ8BE/Y=", "role": "admin", "pk": 4}]
         }
 
         for movie in data.get("movies"):
@@ -238,3 +244,13 @@ def load_data(app, db):
             )
             with db.session.begin():
                 db.session.add(d)
+
+        for user in data.get("users"):
+            u = User(
+                id=user["pk"],
+                username=user["username"],
+                password=user["password"],
+                role=user["role"]
+            )
+            with db.session.begin():
+                db.session.add(u)

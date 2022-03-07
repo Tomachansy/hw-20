@@ -15,8 +15,7 @@ class MovieService:
         return self.dao.create(data)
 
     def update(self, data):
-        mid = data.get("id")
-        movie = self.get_one(mid)
+        movie = self.get_one(data.get("id"))
 
         movie.title = data.get("title")
         movie.description = data.get("description")
@@ -29,8 +28,7 @@ class MovieService:
         self.dao.update(movie)
 
     def update_partial(self, data):
-        mid = data.get("id")
-        movie = self.get_one(mid)
+        movie = self.get_one(data.get("id"))
 
         if "title" in data:
             movie.title = data.get("title")

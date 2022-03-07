@@ -1,5 +1,6 @@
 POST http://localhost:10002/movies/
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im9sZWciLCJyb2xlIjoidXNlciIsImV4cCI6MTY1NzgyMzAzMX0.YBkX1mzUzL-NnCIAvjbD0Fm5FBUsbyRDLTyuKZ2eor4
 
 {
   "title": "title",
@@ -15,47 +16,48 @@ Content-Type: application/json
 # get all movies
 GET http://localhost:10002/movies/
 Accept: application/json
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Iml2YW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE2NTc4MjIxMzh9.hSUFooTmpuNF01hTCI1Pa2TY_UzQPUjn7w2ldPczpyM
 ###
 # get movie by id
 GET http://localhost:10002/movies/1
 Accept: application/json
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Iml2YW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE2NTc4MjIxMzh9.hSUFooTmpuNF01hTCI1Pa2TY_UzQPUjn7w2ldPczpyM
 ###
 # get all movies by directors id
 GET http://localhost:10002/movies/?director_id=15
 Accept: application/json
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Iml2YW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE2NTc4MjIxMzh9.hSUFooTmpuNF01hTCI1Pa2TY_UzQPUjn7w2ldPczpyM
 ###
 # get all movies by genres id
 GET http://localhost:10002/movies/?genre_id=4
 Accept: application/json
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Iml2YW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE2NTc4MjIxMzh9.hSUFooTmpuNF01hTCI1Pa2TY_UzQPUjn7w2ldPczpyM
 ###
 # get all movies by year
-GET http://localhost:10002/movies/?year=2007
+GET http://localhost:10002/movies/?year=2005
 Accept: application/json
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Iml2YW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE2NTc4MjIxMzh9.hSUFooTmpuNF01hTCI1Pa2TY_UzQPUjn7w2ldPczpyM
 ###
 # get all movies by directors and genres id
 GET http://localhost:10002/movies/?director_id=2&genre_id=4
 Accept: application/json
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Iml2YW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE2NTc4MjIxMzh9.hSUFooTmpuNF01hTCI1Pa2TY_UzQPUjn7w2ldPczpyM
 ###
 # get all movies by directors id and year
 GET http://localhost:10002/movies/?director_id=2&year=2012
 Accept: application/json
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Iml2YW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE2NTc4MjIxMzh9.hSUFooTmpuNF01hTCI1Pa2TY_UzQPUjn7w2ldPczpyM
 ###
 # get all movies by directors and genres id and year
-GET http://localhost:10002/movies/?director_id=15&genre=7&year=2001
+GET http://localhost:10002/movies/?director_id=15&genre_id=7&year=2001
 Accept: application/json
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Iml2YW4iLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE2NTc4MjIxMzh9.hSUFooTmpuNF01hTCI1Pa2TY_UzQPUjn7w2ldPczpyM
 ###
 
 PUT http://localhost:10002/movies/1
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im9sZWciLCJyb2xlIjoidXNlciIsImV4cCI6MTY1NzgyMzAzMX0.YBkX1mzUzL-NnCIAvjbD0Fm5FBUsbyRDLTyuKZ2eor4
 
 {
   "title": "GOVNO",
@@ -70,12 +72,13 @@ Content-Type: application/json
 
 DELETE http://localhost:10002/movies/1
 Accept: application/json
-
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im9sZWciLCJyb2xlIjoidXNlciIsImV4cCI6MTY1NzgyMzAzMX0.YBkX1mzUzL-NnCIAvjbD0Fm5FBUsbyRDLTyuKZ2eor4
 ###
 
 PATCH http://localhost:10002/movies/2
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im9sZWciLCJyb2xlIjoidXNlciIsImV4cCI6MTY1NzgyMzAzMX0.YBkX1mzUzL-NnCIAvjbD0Fm5FBUsbyRDLTyuKZ2eor4
 
 {
   "title": "STRASHNO"

@@ -1,0 +1,43 @@
+POST http://localhost:10002/users/
+Accept: application/json
+Content-Type: application/json
+
+{
+	"username": "masha",
+	"password": "Some2Pass",
+	"role": "user"
+}
+
+###
+
+POST http://localhost:10002/users/
+Accept: application/json
+Content-Type: application/json
+
+{
+	"username": "Ilze",
+	"password": "9z@guze",
+	"role": "admin"
+}
+
+###
+
+POST http://localhost:10002/auth/
+Accept: application/json
+Content-Type: application/json
+
+{
+	"username": "ivan",
+	"password": "qwerty"
+}
+
+###
+
+POST http://localhost:10002/auth/
+Accept: application/json
+Content-Type: application/json
+
+{
+	"username": "oleg",
+	"password": "qwerty"
+}

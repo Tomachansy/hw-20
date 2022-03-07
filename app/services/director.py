@@ -15,16 +15,13 @@ class DirectorService:
         return self.dao.create(data)
 
     def update(self, data):
-        did = data.get("id")
-        director = self.get_one(did)
-
+        director = self.get_one(data.get("id"))
         director.name = data.get("name")
 
         self.dao.update(director)
 
     def update_partial(self, data):
-        did = data.get("id")
-        director = self.get_one(did)
+        director = self.get_one(data.get("id"))
 
         if "name" in data:
             director.name = data.get("name")

@@ -9,6 +9,15 @@ class MovieDAO:
         entity_list = self.session.query(Movie).all()
         return entity_list
 
+    def get_by_director_id(self, val):
+        return self.session.query(Movie).filter(Movie.director_id == val).all()
+
+    def get_by_genre_id(self, val):
+        return self.session.query(Movie).filter(Movie.genre_id == val).all()
+
+    def get_by_year(self, val):
+        return self.session.query(Movie).filter(Movie.year == val).all()
+
     def get_one(self, mid):
         entity_list = self.session.query(Movie).get(mid)
         return entity_list

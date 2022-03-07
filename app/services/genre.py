@@ -15,16 +15,13 @@ class GenreService:
         return self.dao.create(data)
 
     def update(self, data):
-        gid = data.get("id")
-        genre = self.get_one(gid)
-
+        genre = self.get_one(data.get("id"))
         genre.name = data.get("name")
 
         self.dao.update(genre)
 
     def update_partial(self, data):
-        gid = data.get("id")
-        genre = self.get_one(gid)
+        genre = self.get_one(data.get("id"))
 
         if "name" in data:
             genre.name = data.get("name")

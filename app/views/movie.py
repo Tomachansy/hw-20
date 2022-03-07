@@ -1,53 +1,36 @@
 from flask import request
 from flask_restx import Resource, Namespace
 
-from app.container import movie_service
+from app.implemented import movie_service
 from app.dao.models.movie import MovieSchema, Movie
+from app.helpers.decorators import auth_required, admin_required
 
 movies_ns = Namespace('movies')
 
 
 @movies_ns.route('/')
 class MoviesView(Resource):
-
+    @auth_required
     def get(self):
-        movies_schema = MovieSchema(many=True)
-        director_id = request.args.get('director_id')
-        genre_id = request.args.get('genre_id')
-        year = request.args.get('year')
-
-        if director_id and genre_id and year:
-            all_movies = Movie.query.filter_by(director_id=director_id, genre_id=genre_id, year=year).all()
-        elif director_id and genre_id:
-            all_movies = Movie.query.filter_by(director_id=director_id, genre_id=genre_id).all()
-        elif director_id and year:
-            all_movies = Movie.query.filter_by(director_id=director_id, year=year).all()
-        elif genre_id and year:
-            all_movies = Movie.query.filter_by(genre_id=genre_id, year=year).all()
-        elif director_id:
-            all_movies = Movie.query.filter_by(director_id=director_id).all()
-        elif genre_id:
-            all_movies = Movie.query.filter_by(genre_id=genre_id).all()
-        elif year:
-            all_movies = Movie.query.filter_by(year=year).all()
-        else:
-            all_movies = movie_service.get_all()
+        all_movies = Movie.query.filter_by(**request.args).all()
 
         if all_movies:
-            return movies_schema.dump(all_movies), 200
+            res = MovieSchema(many=True).dump(all_movies)
+            return res, 200
         else:
             return "", 404
 
+    @admin_required
     def post(self):
         req_json = request.json
-        new_movie = movie_service.create(req_json)
+        movie = movie_service.create(req_json)
 
-        return "", 201, f"Location: movie id is {new_movie.id}"
+        return "", 201, {"location": f"/movies/{movie.id}"}
 
 
 @movies_ns.route('/<int:id>')
 class MovieView(Resource):
-
+    @auth_required
     def get(self, id):
         movie = movie_service.get_one(id)
         if movie:
@@ -56,6 +39,7 @@ class MovieView(Resource):
         else:
             return "", 404
 
+    @admin_required
     def put(self, id):
         if id:
             req_json = request.json
@@ -65,6 +49,7 @@ class MovieView(Resource):
         else:
             return "", 404
 
+    @admin_required
     def patch(self, id):
         if id:
             req_json = request.json
@@ -74,6 +59,7 @@ class MovieView(Resource):
         else:
             return "", 404
 
+    @admin_required
     def delete(self, id):
         if id:
             movie_service.delete(id)
