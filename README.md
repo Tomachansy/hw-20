@@ -1,7 +1,7 @@
 ### Tests
-- test_movies
-- test_directors
-- test_genres
+- test_movies.py
+- test_directors.py
+- test_genres.py
 ### Views
 MoviesView, DirectorsView, GenresView:  
 - get  
